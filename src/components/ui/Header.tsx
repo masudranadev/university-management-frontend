@@ -1,5 +1,5 @@
 import { authKey } from "@/constants/storageKey";
-import { removeUserInfo } from "@/redux/services/auth.service";
+import { getUserInfo, removeUserInfo } from "@/redux/services/auth.service";
 import { UserOutlined } from "@ant-design/icons";
 import { Avatar, Button, Dropdown, Layout, MenuProps, Row, Space } from "antd";
 import { useRouter } from "next/navigation";
@@ -8,6 +8,7 @@ const { Header: AntHeader } = Layout;
 
 const Header = () => {
   const router = useRouter();
+  const {role} = getUserInfo() as any;
   const logout = () => {
     removeUserInfo(authKey);
     router.push("/login");
@@ -37,6 +38,7 @@ const Header = () => {
       >
         <Dropdown menu={{ items }}>
           <Space wrap size={16}>
+            <p>{role}</p>
             <Avatar size="large" icon={<UserOutlined />} />
           </Space>
         </Dropdown>

@@ -8,19 +8,7 @@ const Contents = ({ children }: { children: React.ReactNode }) => {
   return (
     <Content style={{ minHeight: "100vh", color: "black" }}>
       <Header />
-      <UMBreadCrumb
-        items={[
-          {
-            label: `${base}`,
-            link: `/${base}`,
-          },
-          {
-            label: `student`,
-            link: `/${base}/student`,
-          },
-        ]}
-      />
-      {children}
+      <div style={{ padding: "15px" }}>{children}</div>
     </Content>
   );
 };

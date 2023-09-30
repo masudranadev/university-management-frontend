@@ -1,4 +1,4 @@
-import Login from "@/components/ui/Login";
+import Login from "@/components/login/Login";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {

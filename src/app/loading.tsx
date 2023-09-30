@@ -1,6 +1,6 @@
 import React from "react";
-import { Spin } from 'antd';
-import { LoadingOutlined } from '@ant-design/icons';
+import { Space, Spin } from "antd";
+import { LoadingOutlined } from "@ant-design/icons";
 
 const Loading = () => {
   return (
@@ -12,7 +12,9 @@ const Loading = () => {
         height: "100vh",
       }}
     >
-      <Spin indicator={<LoadingOutlined style={{ fontSize: 48 }} spin />} />
+      <Space>
+        <Spin size="large" />
+      </Space>
     </div>
   );
 };

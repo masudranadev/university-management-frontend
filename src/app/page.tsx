@@ -1,9 +1,7 @@
-const Home = () => {
-  return (
-    <div>
-      <h1>This is home page</h1>
-    </div>
-  );
+import { redirect } from "next/navigation";
+
+const HomePage = () => {
+  return redirect("/profile");
 };
 
-export default Home;
+export default HomePage;
