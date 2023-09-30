@@ -2,17 +2,14 @@
 import { useState } from "react";
 
 import { Layout, Menu } from "antd";
-import { sidebarItems } from "@/app/constants/sidebarItems";
-import { USER_ROLE } from "@/app/constants/role";
+import { sidebarItems } from "@/constants/sidebarItems";
+import { getUserInfo } from "@/redux/services/auth.service";
 
 const { Sider } = Layout;
 
 const Sidebar = () => {
   const [collapsed, setCollapsed] = useState(false);
-  // const role = USER_ROLE.SUPER_ADMIN;
-  const role = USER_ROLE.ADMIN;
-  // const role = USER_ROLE.FACULTY;
-  // const role = USER_ROLE.STUDENT;
+  const { role } = getUserInfo() as any;
 
   return (
     <Sider
