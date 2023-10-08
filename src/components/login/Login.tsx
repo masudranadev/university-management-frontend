@@ -2,7 +2,7 @@
 
 import { useUserLoginMutation } from "@/redux/api/authApi";
 import { storeUserInfo } from "@/redux/services/auth.service";
-import { Button, Col, Row } from "antd";
+import { Button, Col, Row, message } from "antd";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { SubmitHandler } from "react-hook-form";
@@ -20,10 +20,10 @@ const Login = () => {
   const onSubmit: SubmitHandler<FormValues> = async (data) => {
     try {
       const res = await userLogin({ ...data }).unwrap();
-      console.log(res);
       
       if(res?.accessToken){
         router.push("/profile");
+        message.success("User Login successfully!")
       }
       storeUserInfo({accessToken: res?.accessToken});
     } catch (error) {}

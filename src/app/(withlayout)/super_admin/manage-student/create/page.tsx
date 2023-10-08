@@ -25,6 +25,7 @@ const CreateStudentPage = () => {
       content: <LocalGuardianInfo />,
     },
   ];
+
   const handleStudentSubmit = async (data: any) => {
     try {
       console.log(data);
