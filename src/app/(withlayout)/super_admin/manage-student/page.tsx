@@ -23,13 +23,12 @@ const ManageStudentPage = () => {
         ]}
       />
       <ActionBar title="Student List">
-      <Link href="/super_admin/manage-student/create">
-      <Button type="primary" ghost>
-        create
-      </Button>
-      </Link>
+        <Link href="/super_admin/manage-student/create">
+          <Button type="primary" ghost>
+            create
+          </Button>
+        </Link>
       </ActionBar>
-      
     </>
   );
 };
