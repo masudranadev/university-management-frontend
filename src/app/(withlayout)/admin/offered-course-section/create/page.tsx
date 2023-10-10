@@ -1,9 +1,10 @@
 "use client";
-
-import ACDepartmentField from "@/components/forms/ACDepartmentField";
+import ACDepartmentIDField from "@/components/forms/ACDepartmentIDField";
 import Form from "@/components/forms/Form";
 import FormInput from "@/components/forms/FormInput";
-import FormSelectField, { SelectOptions } from "@/components/forms/FormSelectField";
+import FormSelectField, {
+  SelectOptions,
+} from "@/components/forms/FormSelectField";
 import SemesterRegistrationField from "@/components/forms/SemesterRegistrationField";
 import FormDynamicFields from "@/components/ui/FormDynamicFields";
 import UMBreadCrumb from "@/components/ui/UMBreadCrumb";
@@ -79,7 +80,7 @@ const CreateOfferedCourseSectionPage = () => {
               />
             </div>
             <div style={{ margin: "10px 0px" }}>
-              <ACDepartmentField
+              <ACDepartmentIDField
                 name="academicDepartment"
                 label="Academic Department"
                 onChange={(el) => setAcDepartmentId(el)}

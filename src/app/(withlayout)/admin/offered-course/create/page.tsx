@@ -1,11 +1,13 @@
 "use client";
 
-
 import ACDepartmentField from "@/components/forms/ACDepartmentField";
 import Form from "@/components/forms/Form";
-import FormSelectField, { SelectOptions } from "@/components/forms/FormSelectField";
+import FormSelectField, {
+  SelectOptions,
+} from "@/components/forms/FormSelectField";
 import OfferedCoursesField from "@/components/forms/OfferedCoursesField";
 import UMBreadCrumb from "@/components/ui/UMBreadCrumb";
+import { useAcademicDepartmentsQuery } from "@/redux/api/academic/departmentApi";
 import { useAddOfferedCourseMutation } from "@/redux/api/offeredCourseApi";
 import { useSemesterRegistrationsQuery } from "@/redux/api/semesterRegistrationApi";
 import { Button, Col, Row, message } from "antd";
@@ -28,7 +30,24 @@ const CreateOfferedCoursePage = () => {
     }
   );
 
+  const { data: value } = useAcademicDepartmentsQuery({
+    limit: 100,
+    page: 1,
+  });
+  
+  const academicDepartments = value?.academicDepartments;
+  
+  const acDepartmentOptions = academicDepartments?.map((acDepartment) => {
+    return {
+      label: acDepartment?.title,
+      value: acDepartment?.id,
+    };
+  });
+
+
   const onSubmit = async (data: any) => {
+    console.log(data);
+    
     message.loading("Creating.....");
     try {
       const res = await addOfferedCourse(data).unwrap();
@@ -69,6 +88,7 @@ const CreateOfferedCoursePage = () => {
               <ACDepartmentField
                 name="academicDepartmentId"
                 label="Academic department"
+                options={acDepartmentOptions as SelectOptions[]}
               />
             </div>
           </Col>

@@ -31,6 +31,8 @@ const CreateStudentPage = () => {
   ];
 
   const handleStudentSubmit = async (values: any) => {
+    console.log(values);
+    
     
     const obj = { ...values };
     const file = obj["file"];
